@@ -50,7 +50,7 @@ class Net(nn.Module):
         x = torch.relu(self.linear2(x))
 
         #输出层
-        x=torch.softmax(self.output(x),dim=-1)  #dim=-1 表示沿着张量的最后一个维度(列)进行 Softmax 计算。这里可以理解为行代表样本，列代表特征，按列计算就是把样本的特征进行加权计算，使最终分类结果和为1
+        x=torch.softmax(self.output(x),dim=-1)  #dim=-1 表示沿着张量的最后一个维度(列)进行 Softmax 计算，指定的是要进行归约（消除）的行维度。。这里可以理解为行代表样本，列代表特征，按列计算就是把样本的特征进行加权计算，使最终分类结果和为1
 
         #返回结果
         return x
