@@ -1,5 +1,5 @@
 """
-批量归一化（Batch Normalization）
+批量标准化（Batch Normalization）
     描述：通过对某一层的输入数据进行标准化处理，使数据分布更加稳定，能够减小批次数据之间的差异   从而改善神经网络的训练过程。
     它最主要的作用包括：
         1. 加快模型训练：改善优化过程，使训练通常更加稳定。
@@ -19,10 +19,10 @@ import torch.nn as nn
 torch.manual_seed(37)
 input_2d=torch.randn(1,2,3,4)       #一张图片，两个通道，3行4列
 print(input_2d)
-#创建批量归一化层（BN层）
+#创建批量归标准化层（BN层）
 #参数1：图片通道数，参数2：防止标准差计算为0，参数3：控制运行均值和方差的更新速度，采用滑动移动加权平均，γ=（1-m）γ’+0.1μ，参数4:是否启用可学习参数，默认为γ=0，β=1
 bn2d=nn.BatchNorm2d(num_features=2,eps=1e-5,momentum=0.1,affine=True)     #2d表示处理的数据有几个维度，比如2位图像数据
 
-#进行批量归一化
+#进行批量标准化
 output_2d=bn2d(input_2d)
-print(f'批量归一化结果：{output_2d}')
+print(f'批量标准化结果：{output_2d}')

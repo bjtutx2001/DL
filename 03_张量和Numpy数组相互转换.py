@@ -6,7 +6,7 @@
     1、from_numpy()，共享内存
     2、torch.tensor(np数组)，不共享内存
 三、从张量对象提取内容
-    标两张量.item()
+    标量张量.item()
 """
 #导包
 import torch
